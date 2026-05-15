@@ -6,7 +6,7 @@ import {
   decrementQty,
   clearCart,
   removeCart,
-} from "../features/cartSlice";
+} from "../features/cartslice";
 
 import { applyCoupon, resetCoupon } from "../features/couponSlice";
 import { ToastContainer, toast } from "react-toastify";
