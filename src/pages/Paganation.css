@@ -1,0 +1,146 @@
+/* =========================
+   WRAPPER
+========================= */
+.pagination-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+  -webkit-font-smoothing: antialiased;
+  padding: 0 15px;
+}
+
+/* =========================
+   MAIN CARD (Pill Shape)
+========================= */
+.pagination-card {
+  background: #ffffff;
+  padding: 8px 20px;
+  border-radius: 50px; /* Force pill shape */
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  /* Premium Shadow */
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1),
+              0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+/* =========================
+   BASE BUTTON
+========================= */
+.pagination-card button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 15px;
+  color: #555;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+  user-select: none;
+}
+
+/* =========================
+   PREV / NEXT BUTTONS
+========================= */
+.nav-btn {
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.nav-btn:hover:not(:disabled) {
+  color: #000;
+  background-color: #f8f9fa;
+}
+
+.nav-btn:active:not(:disabled) {
+  transform: scale(0.94);
+}
+
+.nav-btn:disabled {
+  color: #d1d5db;
+  cursor: not-allowed;
+}
+
+/* =========================
+   PAGE NUMBERS
+========================= */
+.page-numbers {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.page-numbers button {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  font-size: 14px;
+  flex-shrink: 0; /* Prevents numbers from squishing */
+}
+
+.page-numbers button:hover:not(.active) {
+  background-color: #f1f3f5;
+  color: #ff4d6d;
+}
+
+.page-numbers button.active {
+  background-color: #ff4d6d; /* From image_e45d99.png */
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(255, 77, 109, 0.4);
+  transform: scale(1.1);
+}
+
+/* =========================
+   📱 MOBILE ADAPTATION
+========================= */
+@media (max-width: 600px) {
+  .pagination-card {
+    padding: 6px 10px;
+    gap: 8px;
+    max-width: 100%;
+  }
+
+  /* Hide the text 'previous/next' but keep the arrows visible */
+  .nav-btn {
+    padding: 8px;
+    font-size: 18px; /* Make arrow bigger */
+  }
+  
+  /* Selectively hide text nodes while keeping arrows */
+  .nav-btn span {
+    display: none; 
+  }
+
+  /* Horizontal Scroll for Numbers if they overflow */
+  .page-numbers {
+    overflow-x: auto;
+    max-width: 180px; /* Limits width so nav-btns stay on sides */
+    padding: 5px 2px;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Hide scrollbar for Chrome/Safari/Firefox */
+  .page-numbers::-webkit-scrollbar { display: none; }
+  .page-numbers { -ms-overflow-style: none; scrollbar-width: none; }
+
+  .page-numbers button {
+    width: 34px;
+    height: 34px;
+    font-size: 13px;
+  }
+}
+
+/* =========================
+   📱 ULTRA SMALL SCREEN
+========================= */
+@media (max-width: 360px) {
+  .page-numbers {
+    max-width: 120px;
+  }
+}
