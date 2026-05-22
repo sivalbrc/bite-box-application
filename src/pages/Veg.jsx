@@ -13,7 +13,7 @@ function Veg() {
 
 
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 4;
+  const itemsPerPage = 8;
   const [search, setSearch] = useState("");
 const [maxPrice, setMaxPrice] = useState(300);
 

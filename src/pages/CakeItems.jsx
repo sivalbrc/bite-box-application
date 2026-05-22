@@ -17,7 +17,7 @@ function CakeItems() {
   /* UPDATED */
   const [maxPrice, setMaxPrice] = useState(600);
 
-  const itemsPerPage = 4;
+  const itemsPerPage = 8;
 
   const cakeItems = [
 

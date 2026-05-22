@@ -16,14 +16,29 @@ import ChickenItems from "./pages/ChickenItems";
 import SweetItems from "./pages/SweetItems";
 import CakeItems from "./pages/CakeItems";
 
+import Register from "./pages/Register";
+import Login from "./pages/Login";
+
 import "./App.css";
 
 function Layout() {
+
   const [menuOpen, setMenuOpen] = useState(false);
 
   const location = useLocation();
 
   const closeMenu = () => setMenuOpen(false);
+
+  /* HIDE NAVBAR THESE PAGES */
+
+  const hideNavbarRoutes = [
+    "/",
+    "/login",
+    "/register"
+  ];
+
+  const showNavbar =
+    !hideNavbarRoutes.includes(location.pathname);
 
   /* SHOW SIDEBAR ONLY THESE PAGES */
 
@@ -33,24 +48,51 @@ function Layout() {
     "/milk",
     "/chicken",
     "/sweets",
-    "/cakes"
+    "/cakes",
   ].includes(location.pathname);
 
   return (
     <>
-      <Navbar
-        menuOpen={menuOpen}
-        setMenuOpen={setMenuOpen}
-        closeMenu={closeMenu}
-      />
 
-      {/* CONDITIONAL SIDEBAR */}
+      {/* NAVBAR */}
+
+      {showNavbar && (
+
+        <Navbar
+          menuOpen={menuOpen}
+          setMenuOpen={setMenuOpen}
+          closeMenu={closeMenu}
+        />
+
+      )}
+
+      {/* SIDEBAR */}
 
       {showSidebar && <Sidebar />}
 
-      <div className="page-container">
+      {/* PAGE CONTAINER */}
+
+      <div
+        className={
+          hideNavbarRoutes.includes(location.pathname)
+            ? ""
+            : "page-container"
+        }
+      >
+
         <Routes>
-          <Route path="/" element={<Home />} />
+
+          {/* AUTH PAGES */}
+
+          <Route path="/" element={<Register />} />
+
+          <Route path="/register" element={<Register />} />
+
+          <Route path="/login" element={<Login />} />
+
+          {/* MAIN PAGES */}
+
+          <Route path="/home" element={<Home />} />
 
           <Route path="/menu" element={<Menu />} />
 
@@ -66,24 +108,32 @@ function Layout() {
 
           <Route path="/signup" element={<Signup />} />
 
+          {/* CATEGORY PAGES */}
+
           <Route path="/chicken" element={<ChickenItems />} />
 
           <Route path="/sweets" element={<SweetItems />} />
 
           <Route path="/cakes" element={<CakeItems />} />
-          <Route path="/cart" element={<Cart />} />
-          
+
         </Routes>
+
       </div>
+
     </>
   );
 }
 
 function App() {
+
   return (
+
     <BrowserRouter>
+
       <Layout />
+
     </BrowserRouter>
+
   );
 }
 

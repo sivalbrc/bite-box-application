@@ -13,7 +13,7 @@ function ChickenItems() {
   const [search, setSearch] = useState("");
   const [maxPrice, setMaxPrice] = useState(300);
 
-  const itemsPerPage = 4;
+  const itemsPerPage = 8;
 
   const chickenItems = [
   { id: "Chicken-1", name: "Chilli Chicken", price: 220, image: "/nonVegItems/Chilli Chicken.jpg", description: "Spicy Indo-Chinese chicken dish." },

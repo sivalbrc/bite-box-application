@@ -5,7 +5,7 @@
 ========================= */
 
 body{
-  background:#f5f7fa;
+  background:#fff;
   font-family:"Poppins",sans-serif;
 }
 
@@ -387,6 +387,7 @@ body{
 
   .filter-section{
 
+    width:100%;
     flex-direction:column;
 
     align-items:stretch;
@@ -394,16 +395,20 @@ body{
 
   .search-input{
     width:100%;
-    
+    max-width:100%;
+    min-width:0;
+    box-sizing:border-box;
   }
 
   .price-filter{
     width:100%;
+    min-width:0;
+    box-sizing:border-box;
   }
 
   .nonVegMenu__list{
 
-    grid-template-columns:1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 
     justify-items:center;
   }

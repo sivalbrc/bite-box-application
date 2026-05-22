@@ -12,7 +12,7 @@ function SweetItems() {
   const [search, setSearch] = useState("");
   const [maxPrice, setMaxPrice] = useState(300);
 
-  const itemsPerPage = 4;
+  const itemsPerPage = 8;
 
   const sweetItems = [
     { id: "Sweet-1", name: "Gulab Jamun", price: 120, image: "/vegItems/Gulab Jamun.jpg", description: "Soft milk-solid balls soaked in sugar syrup." },

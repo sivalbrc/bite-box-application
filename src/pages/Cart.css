@@ -12,6 +12,7 @@ body,
   min-height:100%;
   overflow-x:hidden;
   overflow-y:auto !important;
+  background: #fff;
 }
 
 /* =========================
@@ -508,4 +509,171 @@ body,
   background: transparent;
   font-size: 20px;
   cursor: pointer;
+}
+/* =========================
+   EMPTY CART SECTION
+========================= */
+
+.empty-cart-container {
+
+  width: 100%;
+  height: 85vh;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+  position: relative;
+
+  overflow: hidden;
+
+  border-radius: 30px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.06);
+}
+
+/* SOFT WHITE GLOW */
+
+.empty-cart-container::before {
+
+  content: "";
+
+  position: absolute;
+
+  width: 300px;
+  height: 300px;
+
+  background: rgba(255,255,255,0.8);
+
+  border-radius: 50%;
+
+  top: -100px;
+  left: -100px;
+
+  filter: blur(40px);
+}
+
+.empty-cart-container::after {
+
+  content: "";
+
+  position: absolute;
+
+  width: 250px;
+  height: 250px;
+
+  background: rgba(245,245,245,0.9);
+
+  border-radius: 50%;
+
+  bottom: -80px;
+  right: -80px;
+
+  filter: blur(40px);
+}
+
+/* =========================
+   VIDEO
+========================= */
+
+.empty-cart-video {
+
+  width: 380px;
+
+  max-width: 90%;
+
+  object-fit: contain;
+
+  z-index: 2;
+
+  animation: floatVideo 3s ease-in-out infinite;
+}
+
+/* FLOAT */
+
+@keyframes floatVideo {
+
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* =========================
+   TITLE
+========================= */
+
+.empty-cart-container h2 {
+
+  margin-top: 10px;
+
+  font-size: 40px;
+
+  font-weight: 700;
+
+  color: #222;
+
+  z-index: 2;
+}
+
+/* =========================
+   TEXT
+========================= */
+
+.empty-cart-container p {
+
+  margin-top: 12px;
+
+  font-size: 17px;
+
+  color: #666;
+
+  z-index: 2;
+
+  max-width: 500px;
+
+  line-height: 1.7;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+  .empty-cart-container {
+
+    height: 75vh;
+
+    padding: 20px;
+  }
+
+  .empty-cart-video {
+
+    width: 260px;
+  }
+
+  .empty-cart-container h2 {
+
+    font-size: 28px;
+  }
+
+  .empty-cart-container p {
+
+    font-size: 15px;
+  }
 }

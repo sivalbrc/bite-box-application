@@ -15,7 +15,7 @@ function Navbar({ menuOpen, setMenuOpen, closeMenu }) {
 
         <div className={`nav-links ${menuOpen ? "active" : ""}`}>
 
-          <Link to="/" className="nav-link" onClick={closeMenu}>
+          <Link to="/home" className="nav-link" onClick={closeMenu}>
             <i className="fa-solid fa-house"></i> Home
           </Link>
 
@@ -38,7 +38,12 @@ function Navbar({ menuOpen, setMenuOpen, closeMenu }) {
           <Link to="/Orders" className="nav-link" onClick={closeMenu}>
             <i className="fa-solid fa-receipt"></i> Orders
           </Link>
-          
+          <Link to="/register" className="nav-link" onClick={closeMenu}>
+            <i className="fa-solid fa-user-plus"></i> Register
+          </Link>
+          {/* <Link to="/login" className="nav-link" onClick={closeMenu}>
+            <i className="fa-solid fa-user"></i> Login
+          </Link> */}
 
         </div>
 

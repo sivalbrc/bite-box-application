@@ -1,14 +1,14 @@
 import React from "react";
 import {QRCode} from "react-qr-code";
 import "./Payment.css";
-
 function Payment({
   netAmount,
   paymentMethod,
   setPaymentMethod,
   timeLeft,
-  setPaymentSuccess,
   paymentSuccess,
+  setPaymentSuccess,
+  completeOrder,
 }) {
   return (
     <div className="payment-method">
@@ -43,7 +43,10 @@ function Payment({
           )}
 
           <button
-            onClick={() => setPaymentSuccess(true)}
+            onClick={() => {
+              setPaymentSuccess(true);
+              completeOrder();
+            }}
             style={{
               marginTop: "10px",
               padding: "10px",

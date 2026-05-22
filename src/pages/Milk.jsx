@@ -14,7 +14,7 @@ function Milk() {
 
   const [currentPage, setCurrentPage] = useState(1);
 
-  const itemsPerPage = 4;
+  const itemsPerPage = 8;
 
   /* SEARCH */
 
@@ -67,6 +67,7 @@ function Milk() {
     { id: "Milk-20", name: "Choco Lava with Ice Cream", price: 180, image: "/MilkItems/Choco Lava with Ice Cream.jpg", description: "Chocolate dessert with ice cream." }
 
   ];
+  // console.log(milkItems);
 
   /* FILTER */
 
@@ -89,7 +90,8 @@ function Milk() {
   const totalPages = Math.ceil(
     filteredItems.length / itemsPerPage
   );
-
+const totalItems = filteredItems.length;
+console.log("Total Filtered Items:", totalItems);
   const startIndex =
     (currentPage - 1) * itemsPerPage;
 
