@@ -407,3 +407,36 @@ body{
     max-width:240px;
   }
 }
+.vegMenu__card{
+  position: relative;
+}
+
+/* RATING BADGE */
+.vegMenu__rating{
+  position: absolute;
+
+  top: 14px;
+  right: 14px;
+
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  background: rgba(255,255,255,0.95);
+
+  padding: 7px 13px;
+
+  border-radius: 50px;
+
+  backdrop-filter: blur(8px);
+
+  font-size: 14px;
+  font-weight: 700;
+
+  color: #111827;
+
+  box-shadow:
+    0 6px 18px rgba(0,0,0,0.15);
+
+  z-index: 10;
+}

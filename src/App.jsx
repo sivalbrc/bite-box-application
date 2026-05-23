@@ -2,7 +2,9 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useState } from "react";
 
 import Navbar from "./components/Navbar";
+// import Footer from "./components/Footer";
 import Sidebar from "./pages/Sidebar";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 import Home from "./pages/Home";
 import Veg from "./pages/Veg";
@@ -51,10 +53,13 @@ function Layout() {
     "/cakes",
   ].includes(location.pathname);
 
-  return (
-    <>
+  // const showFooter = showNavbar;
 
-      {/* NAVBAR */}
+  return (
+    <ErrorBoundary>
+      <>
+
+        {/* NAVBAR */}
 
       {showNavbar && (
 
@@ -120,7 +125,10 @@ function Layout() {
 
       </div>
 
+      {/* {showFooter && <Footer />}   */}
+
     </>
+    </ErrorBoundary>
   );
 }
 

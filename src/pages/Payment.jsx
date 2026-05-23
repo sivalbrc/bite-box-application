@@ -65,8 +65,9 @@ function Payment({
               ✅ Payment Successfully Done!
             </p>
           )}
-
+<div className="UPI">
           <p>UPI ID: vedurusivaprasadreddy@ibl</p>
+          </div>
         </div>
       )}
     </div>

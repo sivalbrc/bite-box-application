@@ -100,37 +100,45 @@ const currentItems = filteredItems.slice(
         </div>
       </div>
       <ul className="nonVegMenu__list">
-        {currentItems.map((item) => (
-          <li key={item.id} className="nonVegMenu__card">
+  {currentItems.map((item) => (
+    <li key={item.id} className="nonVegMenu__card">
 
-            <img
-              src={item.image}
-              alt={item.name}
-              className="nonVegMenu__image"
-            />
+      {/* TOP RATING */}
+      <div className="nonVegMenu__rating">
+        ⭐ 4.8
+      </div>
 
-            <h3 className="nonVegMenu__name">
-              {item.name}
-            </h3>
+      <img
+        src={item.image}
+        alt={item.name}
+        className="nonVegMenu__image"
+      />
 
-            <p className="nonVegMenu__desc">
-              {item.description}
-            </p>
+      <h3 className="nonVegMenu__name">
+        {item.name}
+      </h3>
 
-            <span className="nonVegMenu__price">
-              ₹{item.price}
-            </span>
+      <p className="nonVegMenu__desc">
+        {item.description}
+      </p>
 
-            <button
-              className="nonVegMenu__btn"
-              onClick={() => { dispatch(addToCart(item)); toast(`Item ${item.name} added to cart!`); }}
-            >
-              Add to Cart
-            </button>
+      <span className="nonVegMenu__price">
+        ₹{item.price}
+      </span>
 
-          </li>
-        ))}
-      </ul>
+      <button
+        className="nonVegMenu__btn"
+        onClick={() => {
+          dispatch(addToCart(item));
+          toast(`Item ${item.name} added to cart!`);
+        }}
+      >
+        Add to Cart
+      </button>
+
+    </li>
+  ))}
+</ul>
 
       <Paganation
         currentPage={currentPage}

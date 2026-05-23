@@ -1,0 +1,154 @@
+/* =========================
+   OFFER FEED
+========================= */
+
+.offer-feed {
+  width: 100%;
+  background: rgba(255,255,255,0.95);
+  border-radius: 18px;
+  padding: 16px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+/* Header */
+.offer-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 14px;
+  /* margin-top: 20px; */
+}
+
+/* Live Dot */
+.live-dot {
+  width: 8px;
+  height: 8px;
+  background: #22c55e;
+  border-radius: 50%;
+  animation: blink 1s infinite;
+  
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0.4;
+  }
+}
+
+/* Offer Card */
+.offer-card {
+  border-radius: 16px;
+  padding: 22px 18px;
+  color: white;
+  min-height: 180px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  transition: 0.4s ease;
+}
+
+/* Different Colors */
+.offer-card.offer {
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
+}
+
+.offer-card.delivery {
+  background: linear-gradient(135deg, #11998e, #38ef7d);
+}
+
+.offer-card.combo {
+  background: linear-gradient(135deg, #7f00ff, #e100ff);
+}
+
+.offer-card.sweet {
+  background: linear-gradient(135deg, #ff9966, #ff5e62);
+}
+
+.offer-card.fast {
+  background: linear-gradient(135deg, #2193b0, #6dd5ed);
+}
+
+/* Title */
+.offer-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+/* Message */
+.offer-card p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+/* Button */
+.offer-card button {
+  width: fit-content;
+  border: none;
+  background: white;
+  color: #111827;
+  padding: 10px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.offer-card button:hover {
+  transform: scale(1.05);
+}
+
+/* Dots */
+.offer-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background: #cbd5e1;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.dot.active {
+  width: 24px;
+  border-radius: 20px;
+  background: #7c3aed;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+  .offer-feed {
+    padding: 12px;
+  }
+
+  .offer-card {
+    min-height: 160px;
+    padding: 18px 14px;
+  }
+
+  .offer-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .offer-card p {
+    font-size: 0.85rem;
+  }
+
+  .offer-card button {
+    padding: 8px 14px;
+    font-size: 0.8rem;
+  }
+}

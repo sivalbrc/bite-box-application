@@ -12,8 +12,14 @@ const cartSlice = createSlice({
 
       if (item) {
         item.quantity += 1;
+        item.updatedAt = new Date().toISOString();
       } else {
-        state.push({ ...action.payload, quantity: 1 });
+        state.push({ 
+          ...action.payload, 
+          quantity: 1,
+          addedAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString()
+        });
       }
     },
 
@@ -23,6 +29,7 @@ const cartSlice = createSlice({
       );
       if (item) {
         item.quantity += 1;
+        item.updatedAt = new Date().toISOString();
       }
     },
 
@@ -35,6 +42,7 @@ const cartSlice = createSlice({
 
       if (item.quantity > 1) {
         item.quantity -= 1;
+        item.updatedAt = new Date().toISOString();
       } else {
         return state.filter(
           (i) => i.id !== action.payload.id
@@ -48,7 +56,25 @@ const cartSlice = createSlice({
       );
     },
 
-    clearCart: () => []
+    clearCart: () => [],
+
+    syncCart: (state, action) => {
+      return action.payload || [];
+    },
+
+    updateCartItem: (state, action) => {
+      const { id, updates } = action.payload;
+      const item = state.find((i) => i.id === id);
+      if (item) {
+        Object.assign(item, updates, {
+          updatedAt: new Date().toISOString()
+        });
+      }
+    },
+
+    setCart: (state, action) => {
+      return action.payload;
+    }
   }
 });
 
@@ -57,7 +83,10 @@ export const {
   incrementQty,
   decrementQty,
   removeCart,
-  clearCart
+  clearCart,
+  syncCart,
+  updateCartItem,
+  setCart
 } = cartSlice.actions;
 
 export default cartSlice.reducer;

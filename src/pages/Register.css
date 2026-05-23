@@ -1,222 +1,383 @@
+/* =========================
+   RESET
+========================= */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+}
+
 body {
   font-family: "Poppins", sans-serif;
   overflow: hidden;
+  background: #0f172a;
 }
 
-/* MAIN CONTAINER */
-.food-container {
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.bitebox-register-container {
   width: 100%;
   height: 100vh;
+
   display: flex;
+
   overflow: hidden;
-  background: #fff;
 }
 
-/* LEFT SIDE VIDEO */
-.left-content {
+/* =========================
+   LEFT SIDE
+========================= */
+
+.bitebox-register-left-content {
   width: 70%;
   height: 100vh;
+
   position: relative;
+
   overflow: hidden;
 }
 
 /* VIDEO */
-.food-video {
+
+.bitebox-register-food-video {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-}
 
-/* DARK OVERLAY */
-.overlay {
+  object-fit: cover;
+
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.55);
 }
 
-/* TEXT CONTENT */
-.content-text {
+/* OVERLAY */
+
+.bitebox-register-overlay {
   position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to right,
+      rgba(0,0,0,0.7),
+      rgba(0,0,0,0.45)
+    );
+
+  z-index: 1;
+}
+
+/* =========================
+   TEXT CONTENT
+========================= */
+
+.bitebox-register-content-text {
+  position: absolute;
+
   top: 50%;
   left: 7%;
+
   transform: translateY(-50%);
+
   z-index: 5;
+
   color: white;
+
   max-width: 700px;
 }
 
-.content-text h1 {
-  font-size: 90px;
+.bitebox-register-content-text h1 {
+  font-size: 92px;
+
+  font-weight: 800;
+
+  line-height: 1;
+
+  margin-bottom: 12px;
+
   color: #ff7300;
-  margin-bottom: 10px;
+}
+
+.bitebox-register-content-text p {
+  font-size: 44px;
+
   font-weight: 700;
+
+  line-height: 1.25;
+
+  margin-bottom: 22px;
+
+  color: white;
 }
 
-.content-text p {
-  font-size: 42px;
-  font-weight: 600;
-  line-height: 1.2;
-  margin-bottom: 20px;
-}
+.bitebox-register-content-text span {
+  font-size: 18px;
 
-.content-text span {
-  font-size: 20px;
-  color: #ddd;
   line-height: 1.8;
+
+  color: rgba(255,255,255,0.82);
 }
 
-/* RIGHT SIDE */
-.right-side {
+/* =========================
+   RIGHT SIDE
+========================= */
+
+.bitebox-register-right-side {
   width: 30%;
   height: 100vh;
 
   display: flex;
+
   justify-content: center;
   align-items: center;
 
-  background: rgba(255,255,255,0.05);
+  padding: 24px;
 
-  backdrop-filter: blur(20px);
+  background:
+    linear-gradient(
+      135deg,
+      #111827,
+      #1f2937
+    );
+
+  position: relative;
 }
 
-/* TRANSPARENT FORM */
-.food-form {
-  width: 85%;
-  padding: 45px 35px;
+/* GLOW */
+
+.bitebox-register-right-side::before {
+  content: "";
+
+  position: absolute;
+
+  width: 260px;
+  height: 260px;
+
+  border-radius: 50%;
+
+  background: rgba(255,115,0,0.18);
+
+  filter: blur(70px);
+
+  top: 5%;
+  right: 5%;
+}
+
+/* =========================
+   FORM
+========================= */
+
+.bitebox-register-food-form {
+  width: 100%;
+  max-width: 430px;
+
+  padding: 42px 34px;
 
   border-radius: 30px;
 
-  background: rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.08);
 
-  backdrop-filter: blur(25px);
+  backdrop-filter: blur(18px);
 
-  border: 1px solid rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.08);
 
-  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+  box-shadow:
+    0 20px 45px rgba(0,0,0,0.35);
 
   color: white;
+
+  position: relative;
+  z-index: 10;
 }
 
-/* TITLE */
-.food-form h2 {
+/* =========================
+   TITLE
+========================= */
+
+.bitebox-register-food-form h2 {
   text-align: center;
-  font-size: 52px;
-  margin-bottom: 5px;
-  color: #ff7b00;
+
+  font-size: 58px;
+
+  font-weight: 800;
+
+  line-height: 1;
+
+  margin-bottom: 8px;
+
+  color: #ff7a00;
 }
 
-.food-form p {
+.bitebox-register-food-form p {
   text-align: center;
+
+  font-size: 15px;
+
+  line-height: 1.6;
+
+  color: rgba(255,255,255,0.72);
+
   margin-bottom: 30px;
-  color: #eee;
 }
 
-/* INPUT */
-.input-box {
+/* =========================
+   INPUT BOX
+========================= */
+
+.bitebox-register-input-box {
   margin-bottom: 18px;
 }
 
-.food-form input {
+/* =========================
+   INPUT
+========================= */
+
+.bitebox-register-food-form input {
   width: 100%;
-  padding: 16px 18px;
 
-  border: none;
-  outline: none;
+  height: 58px;
 
-  border-radius: 14px;
+  border-radius: 16px;
 
-  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.1);
+
+  background: rgba(255,255,255,0.06);
+
+  padding: 0 18px;
 
   color: white;
 
   font-size: 15px;
 
-  border: 1px solid rgba(255,255,255,0.1);
+  outline: none;
+
+  transition: 0.3s ease;
 }
 
-.food-form input::placeholder {
-  color: #ddd;
+/* PLACEHOLDER */
+
+.bitebox-register-food-form input::placeholder {
+  color: rgba(255,255,255,0.55);
+
+  font-size: 14px;
+
+  font-weight: 500;
 }
 
-/* BUTTON */
-.food-form button {
+/* FOCUS */
+
+.bitebox-register-food-form input:focus {
+  border-color: #ff7a00;
+
+  background: rgba(255,255,255,0.1);
+
+  box-shadow:
+    0 0 0 4px rgba(255,122,0,0.15);
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.bitebox-register-food-form button {
   width: 100%;
-  padding: 16px;
+
+  height: 58px;
 
   border: none;
-  border-radius: 14px;
 
-  background: linear-gradient(135deg, #ff7300, #ff9f43);
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ff7300,
+      #ff9f43
+    );
 
   color: white;
+
   font-size: 18px;
-  font-weight: bold;
+  font-weight: 700;
 
   cursor: pointer;
 
-  transition: 0.3s;
+  transition: 0.3s ease;
+
+  margin-top: 4px;
+
+  box-shadow:
+    0 10px 24px rgba(255,115,0,0.24);
 }
 
-.food-form button:hover {
+/* HOVER */
+
+.bitebox-register-food-form button:hover {
   transform: translateY(-3px);
+
+  opacity: 0.96;
 }
 
-/* LOGIN TEXT */
-.login-text {
-  margin-top: 20px;
-  text-align: center;
-  color: white;
-}
-
-.login-link {
-  color: #ff8c1a;
-  font-weight: bold;
-  text-decoration: none;
-  margin-left: 5px;
-}
-
-/* MOBILE */
-@media (max-width: 900px) {
-
-  .food-container {
-    flex-direction: column;
-  }
-
-  .left-content {
-    width: 100%;
-    height: 45vh;
-  }
-
-  .right-side {
-    width: 100%;
-    height: 55vh;
-  }
-
-  .content-text h1 {
-    font-size: 50px;
-  }
-
-  .content-text p {
-    font-size: 26px;
-  }
-
-  .content-text span {
-    font-size: 16px;
-  }
-
-  .food-form {
-    width: 92%;
-    padding: 30px;
-  }
-}
 /* =========================
-   MOBILE RESPONSIVE
+   LOGIN TEXT
+========================= */
+
+.bitebox-register-login-text {
+  margin-top: 22px !important;
+
+  text-align: center;
+
+  font-size: 15px;
+
+  color: rgba(255,255,255,0.72);
+}
+
+/* LINK */
+
+.bitebox-register-login-link {
+  color: #ff9f43;
+
+  text-decoration: none;
+
+  font-weight: 700;
+
+  margin-left: 6px;
+}
+
+/* =========================
+   ERROR
+========================= */
+
+.bitebox-register-error-input {
+  border-color: #ff4d4d !important;
+
+  background: rgba(255,77,77,0.08) !important;
+}
+
+.bitebox-register-error-message {
+  display: block;
+
+  margin-top: 6px;
+
+  padding-left: 4px;
+
+  color: #ff6b6b;
+
+  font-size: 12px;
+
+  font-weight: 500;
+}
+
+/* =========================
+   MOBILE
 ========================= */
 
 @media (max-width: 900px) {
@@ -225,130 +386,119 @@ body {
     overflow-y: auto;
   }
 
-  .food-container {
+  .bitebox-register-container {
     flex-direction: column;
-    width: 100%;
+
     height: auto;
+
     min-height: 100vh;
   }
 
-  /* VIDEO SECTION */
-  .left-content {
+  /* LEFT */
+
+  .bitebox-register-left-content {
     width: 100%;
+
     height: 40vh;
-    min-height: 320px;
-    position: relative;
   }
 
-  .food-video {
+  /* RIGHT */
+
+  .bitebox-register-right-side {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+
+    min-height: 60vh;
+
+    padding: 24px 16px;
   }
 
   /* TEXT */
-  .content-text {
+
+  .bitebox-register-content-text {
     width: 90%;
+
     left: 50%;
     top: 50%;
+
     transform: translate(-50%, -50%);
+
     text-align: center;
   }
 
-  .content-text h1 {
-    font-size: 48px;
-    margin-bottom: 8px;
+  .bitebox-register-content-text h1 {
+    font-size: 54px;
   }
 
-  .content-text p {
-    font-size: 24px;
-    line-height: 1.3;
-    margin-bottom: 12px;
+  .bitebox-register-content-text p {
+    font-size: 26px;
   }
 
-  .content-text span {
+  .bitebox-register-content-text span {
     font-size: 15px;
-    line-height: 1.6;
-  }
-
-  /* FORM SIDE */
-  .right-side {
-    width: 100%;
-    height: auto;
-    min-height: 60vh;
-
-    padding: 25px 15px;
-
-    justify-content: flex-start;
-    align-items: center;
   }
 
   /* FORM */
-  .food-form {
-    width: 100%;
+
+  .bitebox-register-food-form {
     max-width: 420px;
 
-    padding: 30px 22px;
-
-    border-radius: 22px;
-
-    margin-top: 10px;
-    margin-bottom: 20px;
+    padding: 34px 22px;
   }
 
-  /* TITLE */
-  .food-form h2 {
-    font-size: 38px;
-  }
-
-  .food-form p {
-    font-size: 15px;
-    margin-bottom: 22px;
-  }
-
-  /* INPUTS */
-  .food-form input {
-    padding: 14px 16px;
-    font-size: 14px;
-  }
-
-  /* BUTTON */
-  .food-form button {
-    padding: 14px;
-    font-size: 16px;
-  }
-
-  /* LOGIN TEXT */
-  .login-text {
-    font-size: 15px;
+  .bitebox-register-food-form h2 {
+    font-size: 42px;
   }
 }
 
-/* EXTRA SMALL MOBILE */
+/* =========================
+   SMALL MOBILE
+========================= */
 
 @media (max-width: 480px) {
 
-  .left-content {
+  .bitebox-register-left-content {
     height: 35vh;
   }
 
-  .content-text h1 {
-    font-size: 38px;
+  .bitebox-register-content-text h1 {
+    font-size: 42px;
   }
 
-  .content-text p {
-    font-size: 19px;
+  .bitebox-register-content-text p {
+    font-size: 20px;
   }
 
-  .content-text span {
+  .bitebox-register-content-text span {
     font-size: 13px;
   }
 
-  .food-form {
-    padding: 25px 18px;
+  .bitebox-register-food-form {
+    padding: 28px 18px;
+
+    border-radius: 24px;
   }
 
-  .food-form h2 {
-    font-size: 32px;
+  .bitebox-register-food-form h2 {
+    font-size: 36px;
+  }
+
+  .bitebox-register-food-form p {
+    font-size: 14px;
+  }
+
+  .bitebox-register-food-form input {
+    height: 54px;
+
+    font-size: 14px;
+  }
+
+  .bitebox-register-food-form button {
+    height: 54px;
+
+    font-size: 16px;
+  }
+
+  .bitebox-register-login-text {
+    font-size: 14px;
   }
 }

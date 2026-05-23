@@ -1,13 +1,30 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, Link } from "react-router-dom";
+import Swal from "sweetalert2";
+import { useAuth } from "../context/AuthContext";
 import "./login.css";
 
 function Login() {
 
-  const { register, handleSubmit, reset } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm();
 
   const navigate = useNavigate();
+
+  const { login, isAuthenticated } = useAuth();
+
+  useEffect(() => {
+
+    if (isAuthenticated) {
+      navigate("/home");
+    }
+
+  }, [isAuthenticated, navigate]);
 
   const loginlogics = (loginData) => {
 
@@ -22,13 +39,33 @@ function Login() {
 
     if (validUser) {
 
-      alert("🍔 Login Successful!");
+      const success = login(
+        validUser,
+        "mock-bitebox-jwt-token"
+      );
 
-      navigate("/home");
+      if (success) {
+
+        Swal.fire({
+          icon: "success",
+          title: "Login Successful 🍔",
+          text: `Welcome back ${validUser.name}`,
+          timer: 2000,
+          showConfirmButton: false,
+        });
+
+        navigate("/home");
+
+      }
 
     } else {
 
-      alert("Invalid email or password");
+      Swal.fire({
+        icon: "error",
+        title: "Access Denied",
+        text: "Invalid email or password",
+        confirmButtonColor: "#ff7300",
+      });
 
     }
 
@@ -37,17 +74,18 @@ function Login() {
 
   return (
 
-    <div className="login-container">
+    <div className="bitebox-login-container">
 
-      {/* LEFT VIDEO SECTION */}
-      <div className="left-content">
+      {/* LEFT SECTION */}
+
+      <div className="bitebox-left-content">
 
         <video
           autoPlay
           muted
           loop
           playsInline
-          className="food-video"
+          className="bitebox-food-video"
         >
           <source
             src="/nonVegItems/cookingmp4.mp4"
@@ -55,15 +93,14 @@ function Login() {
           />
         </video>
 
-        <div className="overlay"></div>
+        <div className="bitebox-overlay"></div>
 
-        <div className="content-text">
+        <div className="bitebox-content-text">
 
           <h1>BiteBOX</h1>
 
           <p>
-            Fresh Burgers,
-            Hot Pizza &
+            Fresh Burgers, Hot Pizza &
             Fast Delivery
           </p>
 
@@ -76,35 +113,79 @@ function Login() {
 
       </div>
 
-      {/* RIGHT LOGIN FORM */}
-      <div className="right-side">
+      {/* RIGHT LOGIN SECTION */}
+
+      <div className="bitebox-right-side">
 
         <form
-          className="food-form"
+          className="bitebox-food-form"
           onSubmit={handleSubmit(loginlogics)}
         >
 
           <h2>Login</h2>
 
-          <p>Welcome back foodie 🍟</p>
+          <p>
+            Welcome back foodie 🍟
+          </p>
 
-          <div className="input-box">
+          {/* EMAIL */}
+
+          <div className="bitebox-input-box">
 
             <input
               type="email"
               placeholder="Enter Email"
-              {...register("email", { required: true })}
+              className={
+                errors.email
+                  ? "bitebox-error-input"
+                  : ""
+              }
+              {...register("email", {
+                required: "Email is required",
+                pattern: {
+                  value:
+                    /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                  message:
+                    "Invalid email address",
+                },
+              })}
             />
+
+            {errors.email && (
+
+              <span className="bitebox-error-message">
+                {errors.email.message}
+              </span>
+
+            )}
 
           </div>
 
-          <div className="input-box">
+          {/* PASSWORD */}
+
+          <div className="bitebox-input-box">
 
             <input
               type="password"
               placeholder="Enter Password"
-              {...register("password", { required: true })}
+              className={
+                errors.password
+                  ? "bitebox-error-input"
+                  : ""
+              }
+              {...register("password", {
+                required:
+                  "Password is required",
+              })}
             />
+
+            {errors.password && (
+
+              <span className="bitebox-error-message">
+                {errors.password.message}
+              </span>
+
+            )}
 
           </div>
 
@@ -112,13 +193,13 @@ function Login() {
             🍽️ Login Now
           </button>
 
-          <p className="login-text">
+          <p className="bitebox-login-text">
 
             Don't have account?
 
             <Link
               to="/register"
-              className="login-link"
+              className="bitebox-login-link"
             >
               Signup
             </Link>

@@ -430,3 +430,28 @@ body{
     max-width:240px;
   }
 }
+.nonVegMenu__card{
+  position: relative;
+}
+
+.nonVegMenu__rating{
+  position: absolute;
+  top: 14px;
+  right: 14px;
+
+  background: #ffffff;
+
+  padding: 6px 12px;
+
+  border-radius: 30px;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  color: #111827;
+
+  box-shadow:
+    0 4px 12px rgba(0,0,0,0.12);
+
+  z-index: 10;
+}

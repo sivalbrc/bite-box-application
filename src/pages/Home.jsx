@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import "./home.css";
-import Menu from "./Menu"; // IMPORT MENU
+import Menu from "./Menu";
+import LiveIndicator from "../components/LiveIndicator";
+import RealtimeStats from "../components/RealtimeStats";
+import ActivityFeed from "../components/ActivityFeed";
 
 function Home() {
 
@@ -27,6 +30,10 @@ function Home() {
 
       {/* CONTENT */}
       <div className="homeHero__content">
+
+        <div className="live-badge-top">
+          <LiveIndicator text="Live Now" size="large" />
+        </div>
 
         <h1 className="homeHero__title">
           Eat Fresh. Eat Smart. 🍽️
@@ -76,6 +83,17 @@ function Home() {
         </div>
 
       )}
+
+      {/* REAL-TIME STATS SECTION */}
+      <div className="realtime-section">
+        <div className="stats-container">
+          <RealtimeStats />
+        </div>
+
+        <div className="activity-container">
+          <ActivityFeed />
+        </div>
+      </div>
 
     </div>
   );

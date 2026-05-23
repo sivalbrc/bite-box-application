@@ -242,3 +242,116 @@ body,
     font-size: 16px;
   }
 }
+
+/* ========================= */
+/* REAL-TIME COMPONENTS */
+/* ========================= */
+
+.live-badge-top {
+  position: absolute;
+  top: 60px;
+  left: 80px;
+  z-index: 10;
+  animation: fadeInDown 0.6s ease;
+  margin-top: 70px;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.realtime-section {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.stats-container {
+  position: absolute;
+  bottom: 60px;
+  left: 80px;
+  right: 80px;
+  max-width: 100%;
+  pointer-events: auto;
+  animation: slideUpStats 0.8s ease;
+}
+
+.activity-container {
+  position: absolute;
+  bottom: 60px;
+  right: 80px;
+  width: 350px;
+  max-height: 400px;
+  pointer-events: auto;
+  animation: slideInRight 0.8s ease 0.2s backwards;
+}
+
+@keyframes slideUpStats {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 1200px) {
+  .stats-container {
+    left: 20px;
+    right: 20px;
+  }
+
+  .activity-container {
+    right: 20px;
+    width: 320px;
+  }
+
+  .live-badge-top {
+    left: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .stats-container {
+    left: 10px;
+    right: 10px;
+    bottom: 420px;
+  }
+
+  .activity-container {
+    right: 10px;
+    width: 100%;
+    max-width: 350px;
+    bottom: 50px;
+  }
+
+  .live-badge-top {
+    left: 20px;
+    top: 80px;
+  }
+}
