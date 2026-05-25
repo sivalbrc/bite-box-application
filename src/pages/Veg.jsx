@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Paganation from "./Paganation";
 import "./Veg.css";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../features/cartslice";
 import { ToastContainer, toast } from "react-toastify";
-import axios from "axios";
+// import axios from "axios";
 import "react-toastify/dist/ReactToastify.css";
 
 const FALLBACK_VEG_ITEMS = [
@@ -21,8 +21,33 @@ const FALLBACK_VEG_ITEMS = [
 ];
 
 function Veg() {
+
+
+  const vegItems = [
+    { id: "Veg-1", name: "Paneer Butter Masala", price: 1, image: "/vegItems/Paneer-Butter-Masala.jpg", description: "Soft paneer cubes cooked in rich tomato butter gravy." },
+    { id: "Veg-2", name: "Veg Biryani", price: 180, image: "/vegItems/veg-biryani.jpg", description: "Fragrant basmati rice cooked with mixed vegetables and spices." },
+    { id: "Veg-3", name: "Masala Dosa", price: 90, image: "/vegItems/mysore_masala_dosa.avif", description: "Crispy dosa stuffed with spicy potato filling." },
+    { id: "Veg-4", name: "Chole Bhature", price: 120, image: "/vegItems/cholle-bhature.jpeg", description: "Spicy chickpea curry served with deep-fried bread." },
+    { id: "Veg-5", name: "Vegetable Pulao", price: 140, image: "/vegItems/Vegetable Pulao.jpg", description: "Lightly spiced rice dish with fresh vegetables." },
+    { id: "Veg-6", name: "Aloo Paratha", price: 80, image: "/vegItems/Aloo Paratha.jpg", description: "Stuffed flatbread with spicy mashed potatoes." },
+    { id: "Veg-7", name: "Palak Paneer", price: 200, image: "/vegItems/Palak Paneer.jpg", description: "Paneer cubes cooked in creamy spinach gravy." },
+    { id: "Veg-8", name: "Veg Manchurian", price: 160, image: "/vegItems/Veg Manchurian.jpg", description: "Fried vegetable balls tossed in Indo-Chinese sauce." },
+    { id: "Veg-9", name: "Spring Rolls", price: 130, image: "/vegItems/Spring Rolls.jpg", description: "Crispy rolls stuffed with seasoned vegetables." },
+    { id: "Veg-10", name: "Rajma Chawal", price: 150, image: "/vegItems/Rajma Chawal.jpg", description: "Kidney bean curry served with steamed rice." },
+    { id: "Veg-11", name: "Paneer Tikka", price: 210, image: "/vegItems/Paneer Tikka.webp", description: "Grilled paneer cubes marinated in spices and yogurt." },
+    { id: "Veg-12", name: "Veg Fried Rice", price: 140, image: "/vegItems/Veg Fried Rice.jpg", description: "Stir-fried rice with vegetables and soy sauce." },
+    { id: "Veg-13", name: "Dal Tadka", price: 130, image: "/vegItems/Dal Tadka.avif", description: "Yellow lentils tempered with spices and herbs." },
+    { id: "Veg-14", name: "Kadai Paneer", price: 230, image: "/vegItems/Kadai Paneer.jpg", description: "Paneer cooked with capsicum in spicy kadai masala." },
+    { id: "Veg-15", name: "Vegetable Cutlet", price: 100, image: "/vegItems/Vegetable Cutlet.jpg", description: "Crispy patties made with mixed vegetables and spices。" },
+    { id: "Veg-16", name: "Tomato Soup", price: 90, image:"/vegItems/Tomato Soup.jpg", description:"Smooth and tangy tomato soup with herbs。" },
+    { id: "Veg-17", name: "Veg Sandwich", price: 110, image: "/vegItems/Veg Sandwich.jpg", description: "Grilled sandwich filled with fresh vegetables." },
+    { id: "Veg-18", name: "Pav Bhaji", price: 120, image: "/vegItems/Pav Bhaji.jpg", description: "Spicy mashed vegetable curry served with buttered pav." },
+    { id: "Veg-19", name: "Mushroom Masala", price: 190, image: "/vegItems/Mushroom Masala.jpg", description: "Mushrooms cooked in rich onion-tomato gravy." },
+    { id: "Veg-20", name: "Veg Noodles", price: 130, image: "/vegItems/Veg Noodles.jpg", description: "Stir-fried noodles with fresh vegetables and sauces." }
+  ];
+
     const dispatch = useDispatch();
-    const [vegItems, setVegItems] = useState([]);
+    // const [vegItems, setVegItems] = useState([]);
 
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 8;
@@ -44,21 +69,23 @@ function Veg() {
   );
 
   // Backend data fetching with robust local fallbacks
-  useEffect(() => {
-    axios.get("http://localhost:8080/api/auth/getAllVegItems")
-      .then((res) => {
-        if (res.data && res.data.length > 0) {
-          setVegItems(res.data);
-        } else {
-          console.log("Empty veg items returned from server, using local fallbacks.");
-          // setVegItems(FALLBACK_VEG_ITEMS);
-        }
-      })
-      .catch((err) => {
-        console.log("Error fetching veg items, using local fallbacks:", err);
-        // setVegItems(FALLBACK_VEG_ITEMS);
-      });
-  }, []);
+  // useEffect(() => {
+  //   axios.get("http://localhost:8080/api/auth/getAllVegItems")
+  //     .then((res) => {
+  //       if (res.data && res.data.length > 0) {
+  //         setVegItems(res.data);
+  //       } else {
+  //         console.log("Empty veg items returned from server, using local fallbacks.");
+  //         // setVegItems(FALLBACK_VEG_ITEMS);
+  //       }
+  //     })
+  //     .catch((err) => {
+  //       console.log("Error fetching veg items, using local fallbacks:", err);
+  //       // setVegItems(FALLBACK_VEG_ITEMS);
+  //     });
+  // }, []);
+  
+ 
 
   return (
     
